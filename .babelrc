@@ -1,0 +1,11 @@
+// whenver project runs babel use these two presets
+
+{
+    "presets": [
+        "env", 
+        "react"
+    ],
+    "plugins": [
+        "transform-class-properties"
+    ]
+}
