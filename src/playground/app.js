@@ -1,4 +1,5 @@
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // stateless functional component (doesn't allow for state)
 // there are components that are concerned with presentation of info vs managing complex state
@@ -70,29 +71,7 @@ class IndecisionApp extends React.Component {
         }))
 
     }
-    render(){
-        const subtitle = 'Put your life in the hands of a computer';
-        
-        return(
-            <div>
-                <Header 
-                    subtitle={subtitle} 
-                />
-                <Action 
-                    hasOptions={this.state.options.length > 0} 
-                    handlePick={this.handlePick} 
-                />
-                <Options 
-                    options={this.state.options}
-                    handleDeleteOptions={this.handleDeleteOptions}
-                    handleDeleteOption={this.handleDeleteOption}
-                />
-                <AddOption 
-                    handleAddOption={this.handleAddOption} 
-                />
-            </div>
-        )
-    }
+     
 }
 
 IndecisionApp.defaultProps = {
@@ -127,12 +106,12 @@ Header.defaultProps = {
 const Action = (props) => {
     return (
         <div>
-                <button 
-                    onClick={props.handlePick}
-                    disabled={!props.hasOptions}> 
-                    What should I do? 
-                </button>
-            </div>
+            <button 
+                onClick={props.handlePick}
+                disabled={!props.hasOptions}> 
+                What should I do? 
+            </button>
+        </div>
     )
 }
 // class Action extends React.Component {
@@ -201,7 +180,7 @@ const Option = (props) => {
 //         return (
 //             <div> 
 //                 Option: {this.props.optionText} 
-//             </div>
+//             </div> 
 //         )
 //     }
 // }
@@ -213,7 +192,7 @@ class AddOption extends React.Component {
         this.state = {
             error : undefined
         }
-    }
+    } 
 
     handleAddOption(e){
         // prevents the full page refresh
